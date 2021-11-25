@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "comments")
+@Table(name = "topic")
 @Getter
 @Setter
-public class CommentEntity extends BasedEntity{
-    @Column(columnDefinition = "TEXT")
-    private String content;
+public class TopicEntity extends BasedEntity {
+    @Column
+    private String name;
 
-    @OneToMany(mappedBy = "commentEntity", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "topicEntity", fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<PublicVideoEntity> publicVideoEntityList = new ArrayList<>();
 }
