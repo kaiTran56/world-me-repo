@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     @Query(value = "SELECT * FROM users u WHERE u.id_facebook like :idFacebook", nativeQuery = true)
     UserEntity getUserByIdFacebook(String idFacebook);
+
+    UserEntity findByEmail(String email);
 }

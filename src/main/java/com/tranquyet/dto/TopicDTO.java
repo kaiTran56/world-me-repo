@@ -9,4 +9,5 @@ import lombok.ToString;
 @ToString
 public class TopicDTO extends BasedDTO<TopicDTO>{
     private String name;
+
 }

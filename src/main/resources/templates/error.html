@@ -4,7 +4,54 @@
     <meta charset="ISO-8859-1">
     <title>Access Denied</title>
 </head>
-<body>
-<h2>Sorry, you don't have permission!</h2>
+<style>
+    html, body
+    {
+        height: 100%;
+        margin:0;
+        padding:0;
+    }
+
+    div {
+        position:relative;
+        height: 100%;
+        width:100%;
+    }
+
+    div img {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+    }
+    .center-fit {
+        max-width: 100%;
+        max-height: 100vh;
+        margin: auto;
+    }
+    img {
+        max-width: 100%;
+        max-height: 100vh;
+        height: auto;
+    }
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .container {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+</style>
+<body style="background: black">
+<div class="container">
+    <img class="center-fit" src="https://i.pinimg.com/originals/3e/2d/cf/3e2dcf41d627f32a6ec20884395a846e.jpg">
+    <div class="centered position-absolute" style="color: white; font-size: 90px">You don't have permission!</div>
+</div>
 </body>
 </html>

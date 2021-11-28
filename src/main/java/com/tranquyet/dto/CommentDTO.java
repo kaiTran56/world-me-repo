@@ -11,4 +11,6 @@ public class CommentDTO extends BasedDTO<CommentDTO>{
 
     private String content;
 
+    private Long idVideo;
+
 }

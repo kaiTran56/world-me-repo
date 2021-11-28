@@ -31,7 +31,7 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public List<PublicVideoDTO> findAll() {
         List<PublicVideoDTO> publicVideoDTOList = publicVideoEntityRepository.findAll()
-                .stream().filter(p->p.getDeleteTag()==1)
+                .stream()
                 .map(p->publicVideoConverter.toDTO(p))
                 .collect(Collectors.toList());
         return publicVideoDTOList;
@@ -72,6 +72,8 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public void delete(Long[] ids) {
-
+        for(long id : ids){
+            publicVideoEntityRepository.changeDeleteStatus(id);
+        }
     }
 }

@@ -35,4 +35,11 @@ public class VideoManagementAPI {
                 Optional.of(httpStatus[0]).orElse(HttpStatus.EXPECTATION_FAILED));
     }
 
+    @DeleteMapping("/delete/{idVideo}")
+    public ResponseEntity<Void> deleteVideo(@PathVariable("idVideo") long idVideo){
+        Long[] ids = {idVideo};
+        videoService.delete(ids);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
 }

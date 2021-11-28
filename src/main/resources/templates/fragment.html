@@ -118,29 +118,31 @@
                     </li>
                     <hr />
                 </ul>
-                <div class="card" style="width: 18rem; height: 430px">
+                <div class="card" style="width: 18rem; height: 370px; overflow:hidden;border:solid;">
                     <div class="card-header text-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
                         Comments <i class="bi bi-chat-dots"> </i>
                     </div>
                     <div class="card-body">
                         <div class="parent">
                             <div class="card-body"
-                                 style="overflow:scroll; height: 370px; overflow-x: hidden; padding-left: 2px;padding-top: 5px;padding-bottom: 5px; padding-right: 2px" id="message-box">
+                                 style="overflow:scroll; height: 340px; overflow-x: hidden; padding-left: 2px;padding-top: 5px;padding-bottom: 5px; padding-right: 2px" id="message-box">
 
                             </div>
-                            <div class="input-group mb-3 absolute">
-                                <hr />
-                                <input style="height: 30px" type="text" class="form-control" id="message" placeholder="comment ..."
-                                       aria-describedby="button-addon2" />
-                                <button style="height: 30px; width: 40px" class="btn btn-success" type="button"
-                                        id="send">
-                                    <i class="bi bi-arrow-right-circle"></i>
-                                </button>
-                            </div>
+
                         </div>
                     </div>
 
                 </div>
+                <div class="input-group mb-3" style="overflow:hidden;border:solid;">
+                    <hr />
+                    <input style="height: 30px" type="text" class="form-control" id="message" placeholder="comment ..."
+                           aria-describedby="button-addon2" />
+                    <button style="height: 30px; width: 40px" class="btn btn-success" type="button"
+                            id="send">
+                        <i class="bi bi-arrow-right-circle"></i>
+                    </button>
+                </div>
+
                 <hr>
                 <div>
 

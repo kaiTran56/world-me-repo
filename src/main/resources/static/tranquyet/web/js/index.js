@@ -15,7 +15,6 @@ $(() => {
     let LINK_GET_VIDEO_BY_ID = "/api/video/get/";
     let LINK_GET_COMMENT_BY_VIDEO = "/api/comment/";
     let idVideo = "1";
-    let idVideoForComment = "1";
 
     let embeddedData = (data) => {
         $("#link-video-web").attr("src", data.linkVideo);
@@ -112,7 +111,7 @@ $(() => {
         getVideoById(idVideo);
     });
 
-    $("#1").click((e) => {
+    $("#topic_genius").click((e) => {
         e.preventDefault();
         toastr.info("Hello");
     });
@@ -121,7 +120,5 @@ $(() => {
         e.preventDefault();
         toastr.info("Hello");
     });
-
-
 });
 

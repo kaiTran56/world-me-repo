@@ -24,6 +24,7 @@ public class CommentConverter implements IBasedConverter<CommentEntity, CommentD
         dto.setModifiedBy(entity.getModifiedBy());
         dto.setModifiedDate(entity.getModifiedDate());
         dto.setContent(entity.getContent());
+        dto.setIdVideo(entity.getPublicVideoEntity().getId());
         return dto;
     }
 

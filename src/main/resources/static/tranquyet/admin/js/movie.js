@@ -2,6 +2,7 @@ $(()=>{
     let contentVideo;
     let descriptionVideo;
     const URL_SAVE_VIDEO = "/admin/api/video/add";
+    let LINK_DELETE_VIDEO = "/admin/api/video/delete/";
 
     ClassicEditor
         .create( document.querySelector( '#editor-description' ) )
@@ -71,4 +72,32 @@ $(()=>{
         clearField();
         toastr.error("Cancel Save Video");
     });
+
+    $('.delete-video').click((event)=>{
+        let id = event.target.id.includes("delete_")
+            ? event.target.id.replace("delete_", "")
+            : null;
+        if(id!=null){
+            deleteById(id);
+            setTimeout(()=>{
+                location.reload();
+            }, 3000);
+        }
+    });
+
+    let deleteById =(id)=>{
+        if(id!=null&& id.length !=0){
+            $.ajax({
+                url: LINK_DELETE_VIDEO + id,
+                method: 'DELETE',
+                contentType: 'application/json',
+                success: (result) =>{
+                    toastr.success("Delete Successfully!");
+                },
+                error: (request,msg,error)=> {
+                    toastr.error("Can not delete!");
+                }
+            });
+        }
+    }
 });

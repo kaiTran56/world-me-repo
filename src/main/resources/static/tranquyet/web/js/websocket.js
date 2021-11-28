@@ -4,6 +4,7 @@ $(document).ready(function() {
     connect();
     $("#send").click(function() {
         sendMessage();
+        $('#message').val('');
     });
 });
 

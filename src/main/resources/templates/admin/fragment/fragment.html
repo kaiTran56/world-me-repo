@@ -64,10 +64,31 @@
         });
 
     </script>
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
     <!-- handle config-->
     <link th:href="@{/tranquyet/admin/css/movie.css}" rel="stylesheet" />
     <script th:src="@{/tranquyet/admin/js/movie.js}"></script>
+    <script th:src="@{/tranquyet/admin/js/topic-management.js}"></script>
 
 </head>
 
@@ -81,10 +102,10 @@
             </a>
         </div>
         <ul class="nav">
-            <li>
+            <li class="nav-item">
                 <a class="nav-link" th:href="@{/admin/topic}">
-                    <i class="nc-icon nc-circle-09"></i>
-                    <p>Topic</p>
+                    <i class="nc-icon nc-notes"></i>
+                    <p>Topic&Comment</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -138,8 +159,8 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#pablo">
-                        <span class="no-icon">Log out</span>
+                    <a class="nav-link" th:href="@{/logout}">
+                        <span class="no-icon" th:href="@{/logout}">Log out</span>
                     </a>
                 </li>
             </ul>
