@@ -1,10 +1,13 @@
 package com.tranquyet.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "video_public")
@@ -34,8 +37,7 @@ public class PublicVideoEntity extends BasedEntity{
     @JsonBackReference
     private LoveEntity loveEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "comment_id")
-    @JsonBackReference
-    private CommentEntity commentEntity;
+    @OneToMany(mappedBy = "publicVideoEntity", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<CommentEntity> commentEntityList = new ArrayList<>();
 }

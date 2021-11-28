@@ -1,4 +1,4 @@
 package com.tranquyet.service;
 
-public class MovieService {
+public interface LoveService {
 }

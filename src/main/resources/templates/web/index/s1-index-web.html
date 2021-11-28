@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragment :: web_header"> </head>
+<body>
+<i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+<div th:replace="fragment :: web_header_page"></div>
+<main id="main">
+  <!---Video-->
+  <div class="col-lg-auto">
+    <div class="card text-white bg-dark col-12">
+      <div class="card-body">
+        <!----Link to video---->
+        <iframe id="link-video-web" class="w-100" height="700"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        Title: <h5 class="card-title" id="title-video">Hello World</h5>
+        <hr/>
+<!--        <button type="button" class="btn btn-info">-->
+<!--          <i class="bi bi-emoji-frown"></i> Love-->
+<!--        </button>-->
+<!--        <button type="button" class="btn btn-outline-primary">-->
+<!--          <i class="bi bi-heart"></i>-->
+<!--          <span class="badge badge-light">4</span>-->
+<!--        </button>-->
+<!--        <hr />-->
+        <p class="card-text" >Created at: <strong id="created-date-video"></strong>. By: <strong id="created-by-video"></strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!---Video-->
+  <section id="description" class="portfolio section-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>Description</h2>
+        <div id="description-video"></div>
+      </div>
+
+      <div class="row" data-aos="fade-up">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="portfolio-flters" >
+            <li id="topic_all">All</li>
+            <li th:each="topic_web: ${topics_web}">
+              <div class="checkTopic" th:text="${topic_web.name}" th:id="'topic_'+${topic_web.name}"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100" id="list-videos">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web" th:each="video : ${videos_web}">
+          <div class="portfolio-wrap" style="height: 312px;" >
+            <img th:src="@{${video.linkImage}}" class="img-fluid" alt="" />
+            <div class="portfolio-links">
+              <a data-gallery="portfolioGallery" th:id="'video_'+${video.id}"
+                 class="checkVideo" title="Web 2"><i class="bi bi-collection-play-fill"></i></a>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Portfolio Section -->
+
+  <!-- ======= Resume Section ======= -->
+  <section id="portfolio2" class="resume">
+    <div class="container">
+      <div class="section-title">
+        <h2>Content</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+          <div class="resume-item">
+            <div id="content-video"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="portfolio3" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>
+          “Try your best... Do your best... Sow the best and reap the best!
+          The best is right in you... Don't hide it and give out the worst.
+          We are looking right up to you!”
+        </p>
+      </div>
+      <div class="row"></div>
+    </div>
+  </section>
+  <div th:replace="fragment :: web_footer_page"></div>
+</main>
+</body>
+
+</html>

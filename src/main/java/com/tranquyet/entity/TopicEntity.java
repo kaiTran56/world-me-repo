@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 public class TopicEntity extends BasedEntity {
-    @Column
+    @Column(unique = true)
     private String name;
 
     @OneToMany(mappedBy = "topicEntity", fetch = FetchType.LAZY)

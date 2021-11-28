@@ -21,4 +21,9 @@ public class PublicVideoDTO extends BasedDTO<PublicVideoDTO> {
 
     private String linkImage;
 
+    private TopicDTO topicDTO;
+
+    private LoveDTO loveDTO;
+
+
 }

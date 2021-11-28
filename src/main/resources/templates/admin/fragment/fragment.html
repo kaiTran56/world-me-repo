@@ -48,13 +48,13 @@
                 "closeButton": true,
                 "debug": false,
                 "newestOnTop": false,
-                "progressBar": true,
+                "progressBar": false,
                 "positionClass": "toast-bottom-right",
                 "preventDuplicates": false,
                 "onclick": null,
                 "showDuration": "300",
                 "hideDuration": "1000",
-                "timeOut": "5000",
+                "timeOut": "2000",
                 "extendedTimeOut": "1000",
                 "showEasing": "swing",
                 "hideEasing": "linear",
@@ -82,15 +82,21 @@
         </div>
         <ul class="nav">
             <li>
-                <a class="nav-link" th:href="@{/admin/movie}">
+                <a class="nav-link" th:href="@{/admin/topic}">
                     <i class="nc-icon nc-circle-09"></i>
-                    <p>User Profile</p>
+                    <p>Topic</p>
                 </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="./table.html">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/admin/video}">
                     <i class="nc-icon nc-notes"></i>
-                    <p>Table List</p>
+                    <p>List Video</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/admin/video/add}">
+                    <i class="nc-icon nc-notes"></i>
+                    <p>Add Video</p>
                 </a>
             </li>
         </ul>
@@ -147,12 +153,12 @@
         <nav>
             <ul class="footer-menu">
                 <li>
-                    <a th:href="@{/admin/movie}">
+                    <a th:href="@{/admin/video}">
                         Home
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/admin/movie}">
+                    <a th:href="@{/admin/video}">
                         Blog
                     </a>
                 </li>

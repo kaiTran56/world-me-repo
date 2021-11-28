@@ -9,6 +9,6 @@ import lombok.ToString;
 @ToString
 public class CommentDTO extends BasedDTO<CommentDTO>{
 
-    private String comment;
+    private String content;
 
 }
