@@ -14,7 +14,7 @@ import java.util.List;
 public class UserEntity extends BasedEntity {
 
     @Column
-    private String email;
+    private String username;
 
     @Column
     private String idFacebook;

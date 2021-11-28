@@ -1,6 +1,6 @@
 package com.tranquyet.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.tranquyet.service.impl.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -10,30 +10,19 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private UserDetailsService userDetailsService;
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return super.userDetailsService();
+        return new UserDetailsServiceImpl();
     }
-
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
-
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -47,28 +36,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
+        auth.inMemoryAuthentication()
+                .withUser("user1").password(passwordEncoder().encode("user1Pass")).roles("USER")
+                .and()
+                .withUser("user2").password(passwordEncoder().encode("user2Pass")).roles("USER")
+                .and()
+                .withUser("admin").password(passwordEncoder().encode("12345678")).roles("ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-//        http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
-//        http.authorizeRequests().antMatchers("/admin*").access("hasRole('ROLE_ADMIN')");
         http.authorizeRequests()
-                .antMatchers("/", "/login").permitAll()
-                .antMatchers("/admin/*", "/admin").hasRole("ROLE_ADMIN")
+                .antMatchers("/", "/login", "/oauth/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin().permitAll()
                 .loginPage("/login")
                 .usernameParameter("email")
                 .passwordParameter("pass")
-                .defaultSuccessUrl("/admin")
+                .defaultSuccessUrl("/list")
                 .and()
-                .logout().logoutSuccessUrl("/login").permitAll()
+                .logout().logoutSuccessUrl("/").permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
         ;
     }
-
 
 }
