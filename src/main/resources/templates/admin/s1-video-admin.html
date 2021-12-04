@@ -12,6 +12,7 @@
         <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
+                <div th:replace="admin/fragment/fragment :: video_detail_modal"></div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card strpied-tabled-with-hover">
@@ -30,7 +31,7 @@
                                     <tbody>
                                     <tr th:each="video : ${videos}">
                                         <td th:text="${video.id}"></td>
-                                        <td>Dakota Rice</td>
+                                        <td th:text="${video.titleVideo}"></td>
                                         <td>
                                             <img width="300" height="200" th:src="@{${video.linkImage}}"
                                                  class="img-rounded" alt="Cinque Terre" />
@@ -43,7 +44,7 @@
                                                     allowfullscreen></iframe>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-success" th:id="'detail_'+${video.id}">Detail</button>
+                                            <button type="button" class="btn btn-success detail-video" th:id="'detail_'+${video.id}" data-toggle="modal" data-target=".bd-example-modal-lg">Detail</button>
                                             <button type="button" class="btn btn-danger delete-video"  th:id="'delete_'+${video.id}">Delete</button>
                                         </td>
                                     </tr>

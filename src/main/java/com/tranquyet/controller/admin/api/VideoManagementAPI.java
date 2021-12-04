@@ -35,6 +35,17 @@ public class VideoManagementAPI {
                 Optional.of(httpStatus[0]).orElse(HttpStatus.EXPECTATION_FAILED));
     }
 
+    @GetMapping("/get/{idVideo}")
+    public ResponseEntity<PublicVideoDTO> getVideoById(@PathVariable("idVideo") Long idVideo){
+//        log.info("--------------> ID VIDEO: "+idVideo);
+        final HttpStatus[] httpStatus = {null};
+        Optional<PublicVideoDTO> videoDTO = Optional.of(videoService.getById(idVideo));
+        videoDTO.ifPresent(p->httpStatus[0]=HttpStatus.OK);
+//        log.info("--------->"+videoDTO.get());
+        return new ResponseEntity<>(videoDTO.get(),
+                Optional.of(httpStatus[0]).orElse(HttpStatus.EXPECTATION_FAILED));
+    }
+
     @DeleteMapping("/delete/{idVideo}")
     public ResponseEntity<Void> deleteVideo(@PathVariable("idVideo") long idVideo){
         Long[] ids = {idVideo};

@@ -29,7 +29,7 @@ public interface PublicVideoEntityRepository extends JpaRepository<PublicVideoEn
             "order by vi.id", nativeQuery = true)
     List<PublicVideoEntity> findByTopic(@Param("topicName") String topicName);
 
-    @Query(value = "select * from video_public where delete_tag = 1", nativeQuery = true)
+    @Query(value = "select * from video_public where delete_tag = 1 order by id", nativeQuery = true)
     List<PublicVideoEntity> findAll();
 
 }

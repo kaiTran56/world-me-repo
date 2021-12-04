@@ -58,7 +58,6 @@ $(() => {
     });
 
     let getCommentByVideo = (id)=>{
-
         if (id != null && id.length != 0) {
             $("#message-box").empty();
             $.ajax({

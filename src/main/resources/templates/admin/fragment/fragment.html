@@ -169,6 +169,78 @@
 </nav>
 
 
+<div th:fragment="video_detail_modal">
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detail Video</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!--                        <div class="card strpied-tabled-with-hover" style="background: #bacbe6">-->
+                            <div class="col-md-12">
+                                <h3>Title: </h3>
+                                <div class="input-group mb-3">
+                                    <input type="text" required class="form-control" id="title-video-detail-admin" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <h3>Topic: </h3>
+                                <select class="form-control" id="topic-video-detail-admin" >
+                                    <div th:each="topic: ${topics}">
+                                        <option th:value="${topic.name}" th:text="${topic.name}">All</option>
+                                    </div>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <h3>Link Video: </h3>
+                                <div class="input-group mb-3">
+                                    <input required type="text" id="link-video-detail-admin" class="form-control"
+                                           aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <h3>Link Image: </h3>
+                                <div class="input-group mb-3">
+                                    <input required type="text" id="image-video-detail-admin" class="form-control"
+                                           aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h3>Description: </h3>
+                            <div class="form-group">
+                                <textarea class="form-control" id="description-video-detail-admin" rows="4"
+                                          style="margin-top: 0px; margin-bottom: 0px; height: 300px;"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12">
+                            <h3>Content: </h3>
+                            <div class="form-group">
+                                <textarea class="form-control" id="content-video-detail-admin" rows="5"
+                                          style="margin-top: 0px; margin-bottom: 0px; height: 340px;"></textarea>
+                            </div>
+
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="save-video-detail-admin">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <footer class="footer" th:fragment="admin_footer">
     <div class="container-fluid">
         <nav>

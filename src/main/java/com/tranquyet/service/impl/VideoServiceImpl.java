@@ -49,6 +49,8 @@ public class VideoServiceImpl implements VideoService {
     public PublicVideoDTO getById(Long id) {
         Optional<PublicVideoDTO> publicVideoDTO = Optional.of(publicVideoEntityRepository.findOneById(id))
                 .map(p->publicVideoConverter.toDTO(p));
+//        log.info("ID VIDEO: "+id);
+//        log.info("VIDEO: "+publicVideoDTO);
         return publicVideoDTO.get();
     }
 
@@ -67,6 +69,7 @@ public class VideoServiceImpl implements VideoService {
             tempPublicVideo.setTopicEntity(topicEntity);
             tempPublicVideo.setDeleteTag(1L);
         }
+        tempPublicVideo.setCreatedBy("GROUP 18: TranXuanQuyet&DoThiNgan");
         return publicVideoConverter.toDTO(publicVideoEntityRepository.save(tempPublicVideo));
     }
 
