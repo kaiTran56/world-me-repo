@@ -24,7 +24,7 @@ public class CommentManagementAPI {
     public ResponseEntity<List<MessageDomain>> getMessageByVideo(@PathVariable(name = "idVideo") Optional<Integer> idVideo){
         final HttpStatus[] httpStatuses = {null};
         List<MessageDomain> messageDomainList = commentService.findByVideo(idVideo.orElse(1));
-        log.info("---->"+messageDomainList);
+//        log.info("---->"+messageDomainList);
         Optional<List<MessageDomain>> idVideoTemp = Optional.of(messageDomainList);
         idVideoTemp.ifPresent(p->{
             httpStatuses[0] = HttpStatus.OK;

@@ -18,7 +18,7 @@ public class WSService {
     }
 
     public void notifyFrontend(final String message) {
-        log.info("WSService: "+message);
+//        log.info("WSService: "+message);
         ResponseMessage response = new ResponseMessage(message);
         messagingTemplate.convertAndSend("/topic/messages", response);
     }

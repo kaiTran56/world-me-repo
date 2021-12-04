@@ -24,10 +24,10 @@ public class VideoManagementAPI {
         final HttpStatus[] httpStatus = {null};
         Optional<PublicVideoDTO> checkDTO = Optional.of(dto);
         dto.setTopicDTO(dto.getTopicDTO());
-        log.info(dto.toString());
+//        log.info(dto.toString());
         checkDTO.filter(p->p.getTitleVideo()!=null&&p.getTitleVideo().isEmpty()!=true)
                 .ifPresent(p->{
-            log.info(p.toString());
+//            log.info(p.toString());
             videoService.save(dto);
             httpStatus[0] = HttpStatus.OK;
         });

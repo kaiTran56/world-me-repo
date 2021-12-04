@@ -21,7 +21,7 @@ public class CommentController {
     @SendTo("/topic/messages")
     public ResponseMessage getMessage(final MessageDomain message) throws InterruptedException {
         Thread.sleep(1000);
-        log.info("Comment Controller: "+message.toString());
+//        log.info("Comment Controller: "+message.toString());
         commentService.customSaveMessage(message);
         return new ResponseMessage(HtmlUtils.htmlEscape(message.getMessageContent()));
     }

@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -70,6 +71,8 @@ public class VideoServiceImpl implements VideoService {
             tempPublicVideo.setDeleteTag(1L);
         }
         tempPublicVideo.setCreatedBy("GROUP 18: TranXuanQuyet&DoThiNgan");
+        tempPublicVideo.setCreatedDate(new Date().toLocaleString());
+
         return publicVideoConverter.toDTO(publicVideoEntityRepository.save(tempPublicVideo));
     }
 

@@ -22,7 +22,7 @@ public class TopicManagementAPI {
     @DeleteMapping("/delete/{idTopic}")
     public ResponseEntity<Void> deleteTopic(@PathVariable(name = "idTopic") long idTopic){
         Long[] idTopics = {idTopic};
-        log.info("------------>"+idTopic);
+//        log.info("------------>"+idTopic);
         topicService.delete(idTopics);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
@@ -32,7 +32,7 @@ public class TopicManagementAPI {
         final HttpStatus[] httpStatuses = {null};
         Optional<TopicDTO> dtoOptional = Optional.of(topicDTO);
         final TopicDTO[] temp = {null} ;
-        log.info("-----> "+topicDTO.toString());
+//        log.info("-----> "+topicDTO.toString());
         dtoOptional.ifPresent(p->{
             dtoOptional.get().setName(topicDTO.getName().replace(" ","").toLowerCase());
             temp[0] = topicService.save(p);

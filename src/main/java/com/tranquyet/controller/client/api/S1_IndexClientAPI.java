@@ -22,7 +22,7 @@ public class S1_IndexClientAPI {
     @GetMapping
     public ResponseEntity<List<PublicVideoDTO>> getListVideo(@RequestParam(value = "topic", required = false, defaultValue = "all") Optional<String> topic){
         final HttpStatus[] httpStatuses = {null};
-        log.info(topic.get());
+//        log.info(topic.get());
         List<PublicVideoDTO> publicVideoDTOList ;
         if(topic.get().isEmpty()==false && topic.get()!=null &&!topic.get().equals("all")){
             publicVideoDTOList = videoService.findByTopic(topic.get());
@@ -37,7 +37,7 @@ public class S1_IndexClientAPI {
     @GetMapping("/get/{id}")
     public ResponseEntity<PublicVideoDTO> getVideoById(@PathVariable(name = "id") Optional<Long> idVideo){
         final HttpStatus[] httpStatuses = {null};
-        log.info("------------->"+idVideo.get());
+//        log.info("------------->"+idVideo.get());
         PublicVideoDTO publicVideoDTO = videoService.getById(idVideo.orElse(1L));
         Optional<PublicVideoDTO> optionalPublicVideoDTO = Optional.of(publicVideoDTO);
         optionalPublicVideoDTO.ifPresent(p->{

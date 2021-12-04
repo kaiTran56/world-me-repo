@@ -17,7 +17,7 @@ public class WSController {
 
     @PostMapping("/send-message")
     public void sendMessage(@RequestBody final MessageDomain message) {
-        log.info("WSController: "+message.toString());
+//        log.info("WSController: "+message.toString());
         service.notifyFrontend(message.getMessageContent());
     }
 }
